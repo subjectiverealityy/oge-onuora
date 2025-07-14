@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blue Website</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navigation">
+      <ul>
+        <li class="first"><a href="#">Ogechukwu Onuora</a></li>
+        <li class="second"><a href="https://www.linkedin.com/in/ogechukwu-onuora/" target="_blank">LinkedIn</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="component">
+
+      <blockquote class="quote" cite="https://www.linkedin.com/in/ogechukwu-onuora/">
+        <p>"I like that I can start offline with a blank code editor and create something from nothing
+        that people all over the world can access and find useful and/or beautiful."</p>
+      </blockquote>
+      <cite><a href="https://www.linkedin.com/in/ogechukwu-onuora/" target="_blank">–my LinkedIn profile</a></cite>
+
+      <div class="button"><a href="#projects">View Projects</a></div>
+
+      <div class="paragraphs">
+        <p class="paragraph">I am a web developer that enjoys writing the code for the visual and interactive parts of digital interfaces. I value code readability, SEO-friendly development and often find myself thinking of and experimenting on ways to make my CSS more reusable, efficient and easy to update. </p>
+        <p class="paragraph">One of my goals as a developer is to create (and contribute to) projects that are useful to living beings. I write most of my projects in semantic HTML, CSS and JavaScript. I have also worked with JSON and have an interest in learning templating and backend development to complement my frontend stack.</p>
+        <p class="paragraph">My work preference is converting Figma designs or images of UIs into responsive web pages and building static websites in the oldest languages of the web. If you are interested in working with me or connecting or collaborating, you can reach out to me on <a href="https://www.linkedin.com/in/ogechukwu-onuora/" target="_blank">LinkedIn</a> and/or via <span class="email-cta" onclick="emailEmphasis()" tabindex="0">email</span>.</p>
+      </div>
+
+      <h2 class="projects-heading" id="projects">Here are some projects that I have worked on</h2>
+      <ul class="projects">
+        <li><a href="https://github.com/subjectiverealityy/portfolio-site" target="_blank">https://github.com/subjectiverealityy/portfolio-site</a><br>(conversion of a Figma design into a responsive 7-page website)</li>
+        <li><a href="https://github.com/subjectiverealityy/local-teas-website" target="_blank">https://github.com/subjectiverealityy/local-teas-website</a><br>(includes JSON, and e-commerce functionality on the buy.html page)</li>
+        <li><a href="https://github.com/subjectiverealityy/team-management-dashboard" target="_blank">https://github.com/subjectiverealityy/team-management-dashboard</a><br>(desktop only)</li>
+      </ul>
+
+    </div>
+  </main>
+
+  <footer>
+    <button class="button email-emphasis" onclick="copyEmail()">Click to copy <span class="accent-color copyEmail">subjectiverealityy@gmail.com</span></button> <!--
+    <button class="button"><a href="/media/cv.pdf" target="_blank">View <span class="accent-color">CV/Resume</span></a></button> (I decided against including my CV in the website because I would have to update the repository everytime I update my CV/resume, amongst other reasons. I left the code for the button here in case I decide to add it later.) -->
+  </footer>
+
+  <!-- This function plays the footer button's 'emphasis animation' when the underlined 'email' word in normal flow is clicked. -->
+  <script>
+    function emailEmphasis() { 
+      const eventTrigger = document.querySelector(".email-cta");
+      eventTrigger.addEventListener("click", function() {
+        console.log("successful");
+        document.querySelector(".email-emphasis").classList.remove("emphasis");
+        void document.querySelector(".email-emphasis").offsetWidth; // This forces the browser to recalculate the layout. When it 'touches'/reaches the element while doing this, it notices the class was removed and restarts the animation.
+        document.querySelector(".email-emphasis").classList.add("emphasis");
+      });
+    }
+    emailEmphasis(); 
+  </script>
+
+  <!-- This function copies 'subjectiverealityy@gmail.com' to the user's clipboard (when the button in the footer is clicked) and shows a corresponding success or error alert. -->
+  <script>
+    function copyEmail() {
+      const email = document.querySelector(".copyEmail").innerText;
+      navigator.clipboard.writeText(email)
+        .then(() => {
+          alert("Copied: " + email + " (it is now in your clipboard)");
+        })
+        .catch(function(error) {
+          alert("Failed to copy to your clipboard due to your system settings: Please type in " + email + " as the recepient of your email.")
+        });
+    }
+  </script>
+  
+</body>
+
+</html>
+
+<!-- note to self: v1 was finished on Monday, 14th July, 2025. -->

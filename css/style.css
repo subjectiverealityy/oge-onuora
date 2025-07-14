@@ -1,0 +1,187 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --background-color: #020817;
+  --accent-color: /* previously #94A3B8 */ #669BBC;
+  --main-color: #DDDDEF;
+  font-size: 10px; /* this sets the base font size (all font sizes in the document with rem units are computed relative to this value) */
+}
+
+html {
+  background-color: var(--background-color);
+  color: var(--main-color);
+  scroll-behavior: smooth; /* this sets same-page links to scroll gently instead of jumping instantly to the target */
+}
+
+/* global styles */
+
+span.accent-color {
+  color: #669BBC;
+}
+
+/* header */
+header {
+  position: fixed;
+  background-color: var(--background-color);
+  width: 100%;
+}
+
+header .navigation {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: var(--accent-color);
+  border-bottom: 1px solid var(--accent-color);
+
+  ul {
+    list-style: none;
+    padding: 20px;
+    display: flex; /* I added this declaration so that 'margin-left' will work on the second <li> item */
+
+    li { /* This will make the layout behave correctly if I ever want to add more navigation links in the header */
+    display: inline-block;
+    }
+
+    li.first {
+      margin-right: 30px; /* This is so the heading and navigation items don't get too close on smaller screens. */
+    }
+
+    li.second { /* Apply this class on the second <li> so it behaves like the common header style with a logo/website title and navigation */
+      margin-left: auto;
+    }
+
+    li a {
+      text-decoration: none;
+    }
+  } 
+}
+
+/* footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  padding: 15px;
+  display: flex;
+  place-items: center;
+  gap: 10px;
+  justify-content: end;
+}
+
+/* link and button styles */
+.email-emphasis {
+  cursor: pointer;
+}
+
+.email-cta {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a, .email-cta {
+  color: inherit;
+  text-decoration-color: var(--accent-color); /* styling the 'underline' of all the <a> tags */
+  text-decoration-thickness: 1.2px;
+  text-underline-offset: 4.5px; /* note to self: 6.5px looked alright too. If you want to try another value later, try that. */
+  text-decoration-style: dashed;
+}
+
+.button {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.45rem;
+  background-color: var(--background-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 10px;
+  color: var(--main-color);
+  padding: 10px 20px;
+  width: fit-content;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+@keyframes emphasis {
+  0% { opacity: 1; }
+  50% { opacity: 0.75; }
+  100% { opacity: 1; }
+}
+
+.emphasis {
+  animation: emphasis 1.3s ease-out 5;
+}
+
+/* component */
+.component {
+  display: grid;
+  padding: 0 30px;
+
+  .quote {
+    font-family: 'Roboto', sans-serif;
+    color: var(--accent-color);
+    font-size: clamp(1.8rem, 4vw, 3.3rem);
+    font-weight: 250;
+    margin-top: 20px;
+    line-height: 1.8;
+    font-style: italic;
+    margin-top: 100px;
+  }
+
+  cite {
+    font-family: 'Roboto', sans-serif;
+    color: inherit;
+    font-size: 1.6rem;
+    text-align: right;
+    font-style: oblique;
+    font-weight: 250;
+    margin-top: 10px;
+  }
+
+  .button {
+    margin-top: 30px;
+  }
+
+  .paragraphs {
+    margin-top: 100px;
+    max-width: 550px;
+  }
+
+  .paragraph {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 220;
+    margin-top: 30px;
+    line-height: 2;
+  }
+
+  .projects-heading {
+    font-family: 'Crimson Text', sans-serif;
+    color: var(--accent-color);
+    text-decoration: underline;
+    text-decoration-thickness: 0.2px;
+    text-underline-offset: 3px;
+    font-style: oblique;
+    font-size: 1.9rem;
+    font-weight: 100;
+    letter-spacing: 0.7px;
+    margin-top: 70px;
+  }
+
+  .projects {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 250;
+    margin-top: 10px;
+    display: grid;
+    gap: 16px;
+    line-height: 2;
+    list-style-type: none;
+    margin-bottom: 200px;
+  }
+}
