@@ -26,6 +26,7 @@ span.accent-color {
 /* header */
 header {
   position: fixed;
+  top: 0;
   background-color: var(--background-color);
   width: 100%;
 }
@@ -119,8 +120,7 @@ a, .email-cta {
 
 /* component */
 .component {
-  display: grid;
-  padding: 0 30px;
+  padding: 0 25px;
 
   .quote {
     font-family: 'Roboto', sans-serif;
@@ -137,6 +137,8 @@ a, .email-cta {
     font-family: 'Roboto', sans-serif;
     color: inherit;
     font-size: 1.6rem;
+    display: inline-block;
+    width: 100%;
     text-align: right;
     font-style: oblique;
     font-weight: 250;
@@ -182,6 +184,10 @@ a, .email-cta {
     gap: 16px;
     line-height: 2;
     list-style-type: none;
-    margin-bottom: 200px;
+    margin-bottom: 175px;
+
+    a {
+      word-break: break-all;
+    }
   }
 }
